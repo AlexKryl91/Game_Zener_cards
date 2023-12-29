@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "Schaeffer";
+  src: local("Schaeffer"), url("./fonts/Schaeffer.ttf") format("truetype");
+}
+@font-face {
+  font-family: "RitzyRemixNF";
+  src: local("RitzyRemixNF"), url("./fonts/RitzyRemixNF.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Greta Deco line";
+  src: local("Greta Deco line"), url("./fonts/Greta Deco line.ttf") format("truetype");
+}
+/* Styles reset */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Reset content area sizing */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+header,
+footer,
+nav {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 400;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+.container .game-field .card .face, .container .game-field .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.container .bottom-bar, .container .top-bar {
+  position: absolute;
+  width: 100%;
+  height: 30.8%;
+}
+
+.container .dynamic-field, .container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.disappear {
+  animation: vanish 1.2s ease 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.appear {
+  animation: showUp 1s ease;
+  animation-fill-mode: forwards;
+}
+
+.moveDown {
+  transition: transform 1.5s ease, z-index 2s step-end;
+  transform: translateY(30%) rotateX(-180deg);
+  z-index: -1;
+}
+
+.moveUp {
+  transition: transform 1.5s ease, z-index 2s step-end;
+  transform: translateY(-30%) rotateX(-180deg);
+  z-index: -1;
+}
+
+.toDefaultPosition {
+  transition: transform 2s ease;
+  transform: translateY(0%) rotateX(0deg);
+}
+
+@keyframes intro {
+  0% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes vanish {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    z-index: initial;
+    opacity: 0;
+  }
+  100% {
+    z-index: -1;
+    opacity: 0;
+  }
+}
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+:root {
+  --gradient-mid-gold: linear-gradient(#bf953f, #fcf6ba, #b38728);
+  --gradient-full-gold: linear-gradient(
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  );
+  --color-dark-burgundy: rgb(25, 5, 0);
+  --color-black-burgundy: rgb(15, 0, 0);
+  --fonts-default-stack: Verdana, Tahoma, Arial, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background: url(./../img/background.svg);
+  background-size: cover;
+  font-family: var(--fonts-default-stack);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.container {
+  animation: intro 1s ease;
+}
+.container .game-field {
+  --dynamic-height: 54vh;
+  --dynamic-gap: 10px;
+  width: calc(3.125 * var(--dynamic-height) + 11 * var(--dynamic-gap));
+  height: calc(var(--dynamic-height) + 3 * var(--dynamic-gap));
+  padding: var(--dynamic-gap);
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--dynamic-gap);
+  border: 2px dashed rgb(148, 35, 91);
+}
+.container .game-field .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+.container .game-field .card .back {
+  background: url(./../img/Card_back_Low_res.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container .game-field .card .face {
+  background: url(./../img/face_sprite.svg);
+  background-size: 500% 100%;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+.container .top-bar {
+  top: 0;
+  background: url(./../img/Top_bar.svg);
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 0;
+  background-color: rgba(102, 51, 153, 0.5);
+}
+.container .bottom-bar {
+  bottom: 0;
+  background: url(./../img/Bottom_bar.svg);
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 0;
+  background-color: rgba(102, 51, 153, 0.5);
+}
+.container .dynamic-field {
+  background: linear-gradient(90deg, var(--color-black-burgundy), var(--color-dark-burgundy) 20%, var(--color-dark-burgundy) 80%, var(--color-black-burgundy));
+}
+.container .dynamic-field .header_main {
+  margin-bottom: 30px;
+  font-family: "Schaeffer", var(--fonts-default-stack);
+  font-size: 82px;
+  text-align: center;
+  background: var(--gradient-full-gold);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.container .dynamic-field .header_sub {
+  font-family: "Greta Deco line", var(--fonts-default-stack);
+  font-size: 48px;
+  text-align: center;
+  background: var(--gradient-mid-gold);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 3px;
+}
+.container .dynamic-field .restart-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: var(--gradient-mid-gold);
+  color: var(--color-dark-burgundy);
+  font-size: 26px;
+  font-family: "RitzyRemixNF", var(--fonts-default-stack);
+  text-align: center;
+  letter-spacing: 3px;
+}
+.container .dynamic-field .restart-btn:hover {
+  box-shadow: 0 0 10px 3px #ece2da;
+  transition: 0.3s ease;
+}
+
+/*# sourceMappingURL=styles.css.map */

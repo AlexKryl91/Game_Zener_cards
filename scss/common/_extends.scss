@@ -1,0 +1,22 @@
+%card-shared {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+%bar-shared {
+  position: absolute;
+  width: 100%;
+  height: 30.8%;
+}
+
+%flex-vertical-shared {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

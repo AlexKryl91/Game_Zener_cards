@@ -1,0 +1,29 @@
+@mixin user-select($property) {
+  user-select: $property;
+  -webkit-user-select: $property;
+  -moz-user-select: $property;
+  -ms-user-select: $property;
+}
+
+@mixin bar-bg($url, $bg-position) {
+  background: $url;
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-position: $bg-position;
+  z-index: 0;
+}
+
+@mixin card-bg($url, $bg-size) {
+  background: $url;
+  background-size: $bg-size;
+  background-repeat: no-repeat;
+}
+
+@mixin header-text-style($main-font, $font-size, $bg) {
+  font-family: $main-font, var(--fonts-default-stack);
+  font-size: $font-size;
+  text-align: center;
+  background: $bg;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,44 @@
+// @media only screen and (max-width: 800px) and (min-width: 520px) {
+//     .gameField {
+//       --dynamic-height: 88vh;
+//       width: calc(0.5 * var(--dynamic-height) + 5 * var(--dynamic-gap));
+//       height: calc(var(--dynamic-height) + 6 * var(--dynamic-gap));
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .topBar {
+//       height: 31.5vw;
+//     }
+//     .bottomBar {
+//       height: 31.5vw;
+//     }
+//   }
+
+//   @media only screen and (max-width: 520px) {
+//     .gameField {
+//       --dynamic-width: 69vw;
+//       width: calc(var(--dynamic-width) + 5 * var(--dynamic-gap));
+//       height: calc(2 * var(--dynamic-width) + 6 * var(--dynamic-gap));
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .topBar {
+//       height: 31.5vw;
+//     }
+//     .bottomBar {
+//       height: 31.5vw;
+//     }
+//   }
+
+//   @media only screen and (max-width: 400px) {
+//     .gameField {
+//       --dynamic-width: 87vw;
+//       width: calc(var(--dynamic-width) + 5 * var(--dynamic-gap));
+//       height: calc(2 * var(--dynamic-width) + 6 * var(--dynamic-gap));
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .topBar {
+//       height: 31.5vw;
+//     }
+//     .bottomBar {
+//       height: 31.5vw;
+//     }
+//   }
