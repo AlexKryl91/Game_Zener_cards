@@ -34,24 +34,22 @@ body {
   animation: intro 1s ease;
 
   .game-field {
-    // --dynamic-height: 89vh;
-    // --dynamic-gap: 10px;
-    // width: calc(0.78125 * var(--dynamic-height) + 6 * var(--dynamic-gap));
-    // height: calc(var(--dynamic-height) + 5 * var(--dynamic-gap));
-    // padding: var(--dynamic-gap);
-    // display: grid;
-    // grid-template-columns: repeat(5, 1fr);
-    // gap: var(--dynamic-gap);
-    --dynamic-height: 54vh;
+    --dynamic-height: 89vh;
     --dynamic-gap: 10px;
-    width: calc(3.125 * var(--dynamic-height) + 11 * var(--dynamic-gap));
-    height: calc(var(--dynamic-height) + 3 * var(--dynamic-gap));
+    width: calc(0.78125 * var(--dynamic-height) + 6 * var(--dynamic-gap));
+    height: calc(var(--dynamic-height) + 5 * var(--dynamic-gap));
     padding: var(--dynamic-gap);
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: var(--dynamic-gap);
-    //
-    border: 2px dashed rgb(148, 35, 91);
+    // --dynamic-height: 54vh;
+    // --dynamic-gap: 10px;
+    // width: calc(3.125 * var(--dynamic-height) + 11 * var(--dynamic-gap));
+    // height: calc(var(--dynamic-height) + 3 * var(--dynamic-gap));
+    // padding: var(--dynamic-gap);
+    // display: grid;
+    // grid-template-columns: repeat(10, 1fr);
+    // gap: var(--dynamic-gap);
     //
 
     .card {
@@ -63,13 +61,13 @@ body {
 
       .back {
         @extend %card-shared;
-        @include card-bg(url(./../img/Card_back_Low_res.svg), 100%); //
+        @include card-bg(url(./../img/Card_back_Low_res.svg), 100%);
         background-position: center;
       }
 
       .face {
         @extend %card-shared;
-        @include card-bg(url(./../img/face_sprite.svg), 500% 100%); //
+        @include card-bg(url(./../img/face_sprite.svg), 500% 100%);
         transform: rotateY(180deg);
       }
     }
@@ -80,7 +78,7 @@ body {
     top: 0;
     @include bar-bg(url(./../img/Top_bar.svg), bottom);
     //
-    background-color: rgba(102, 51, 153, 0.5);
+    // background-color: rgba(102, 51, 153, 0.5);
   }
 
   .bottom-bar {
@@ -88,7 +86,7 @@ body {
     bottom: 0;
     @include bar-bg(url(./../img/Bottom_bar.svg), top);
     //
-    background-color: rgba(102, 51, 153, 0.5);
+    // background-color: rgba(102, 51, 153, 0.5);
   }
 
   .dynamic-field {
@@ -100,6 +98,7 @@ body {
       var(--color-dark-burgundy) 80%,
       var(--color-black-burgundy)
     );
+    transition: opacity 1.3s ease;
 
     .header_main {
       margin-bottom: 30px;

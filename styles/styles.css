@@ -110,7 +110,9 @@ img {
 .container .bottom-bar, .container .top-bar {
   position: absolute;
   width: 100%;
+  max-width: 800px;
   height: 30.8%;
+  transition: transform 1.5s ease;
 }
 
 .container .dynamic-field, .container {
@@ -123,35 +125,25 @@ img {
   justify-content: center;
 }
 
+.on-top {
+  animation: moveOnTop 0.8s step-end;
+  animation-fill-mode: forwards;
+}
+
 .hidden {
   display: none;
 }
 
 .disappear {
-  animation: vanish 1.2s ease 1.5s;
-  animation-fill-mode: forwards;
-}
-
-.appear {
-  animation: showUp 1s ease;
-  animation-fill-mode: forwards;
-}
-
-.moveDown {
-  transition: transform 1.5s ease, z-index 2s step-end;
-  transform: translateY(30%) rotateX(-180deg);
-  z-index: -1;
+  opacity: 0;
 }
 
 .moveUp {
-  transition: transform 1.5s ease, z-index 2s step-end;
   transform: translateY(-30%) rotateX(-180deg);
-  z-index: -1;
 }
 
-.toDefaultPosition {
-  transition: transform 2s ease;
-  transform: translateY(0%) rotateX(0deg);
+.moveDown {
+  transform: translateY(30%) rotateX(-180deg);
 }
 
 @keyframes intro {
@@ -162,25 +154,9 @@ img {
     scale: 1;
   }
 }
-@keyframes vanish {
-  0% {
-    opacity: 1;
-  }
-  99% {
-    z-index: initial;
-    opacity: 0;
-  }
+@keyframes moveOnTop {
   100% {
-    z-index: -1;
-    opacity: 0;
-  }
-}
-@keyframes showUp {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+    z-index: 1;
   }
 }
 :root {
@@ -212,15 +188,14 @@ body {
   animation: intro 1s ease;
 }
 .container .game-field {
-  --dynamic-height: 54vh;
+  --dynamic-height: 89vh;
   --dynamic-gap: 10px;
-  width: calc(3.125 * var(--dynamic-height) + 11 * var(--dynamic-gap));
-  height: calc(var(--dynamic-height) + 3 * var(--dynamic-gap));
+  width: calc(0.78125 * var(--dynamic-height) + 6 * var(--dynamic-gap));
+  height: calc(var(--dynamic-height) + 5 * var(--dynamic-gap));
   padding: var(--dynamic-gap);
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--dynamic-gap);
-  border: 2px dashed rgb(148, 35, 91);
 }
 .container .game-field .card {
   position: relative;
@@ -244,23 +219,20 @@ body {
 .container .top-bar {
   top: 0;
   background: url(./../img/Top_bar.svg);
-  background-size: auto 95%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
-  z-index: 0;
-  background-color: rgba(102, 51, 153, 0.5);
 }
 .container .bottom-bar {
   bottom: 0;
   background: url(./../img/Bottom_bar.svg);
-  background-size: auto 95%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: top;
-  z-index: 0;
-  background-color: rgba(102, 51, 153, 0.5);
 }
 .container .dynamic-field {
   background: linear-gradient(90deg, var(--color-black-burgundy), var(--color-dark-burgundy) 20%, var(--color-dark-burgundy) 80%, var(--color-black-burgundy));
+  transition: opacity 1.3s ease;
 }
 .container .dynamic-field .header_main {
   margin-bottom: 30px;

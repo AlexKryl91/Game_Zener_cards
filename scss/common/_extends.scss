@@ -8,7 +8,9 @@
 %bar-shared {
   position: absolute;
   width: 100%;
+  max-width: 800px;
   height: 30.8%;
+  transition: transform 1.5s ease;
 }
 
 %flex-vertical-shared {

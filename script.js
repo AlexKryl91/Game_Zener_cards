@@ -69,6 +69,8 @@ let isAnimationEnded = true; // to account for animation delay when selecting a 
 setTimeout(() => {
   topBar.classList.add('moveUp');
   bottomBar.classList.add('moveDown');
+  dynamicField.classList.add('disappear');
+  gameField.classList.add('on-top');
 }, 1400);
 //
 
@@ -113,10 +115,11 @@ gameField.addEventListener('click', (event) => {
       )}`;
       //
       restartBtn.classList.toggle('hidden');
+      gameField.classList.toggle('on-top');
+      dynamicField.classList.toggle('disappear');
       //
-      topBar.classList.replace('moveUp', 'toDefaultPosition');
-      bottomBar.classList.replace('moveDown', 'toDefaultPosition');
-      dynamicField.classList.replace('disappear', 'appear');
+      topBar.classList.toggle('moveUp');
+      bottomBar.classList.toggle('moveDown');
       //
     }
   }
@@ -131,14 +134,16 @@ restartBtn.onclick = () => {
   cardBehavior(...cards);
   randomCardShuffle(cards);
   //
-  //
   mainHeader.textContent = 'GOOD LUCK';
   subHeader.textContent = 'Trust your senses!';
   //
   restartBtn.classList.toggle('hidden');
+  setTimeout(() => {
+    gameField.classList.toggle('on-top');
+    dynamicField.classList.toggle('disappear');
+  }, 800);
   //
-  topBar.classList.replace('toDefaultPosition', 'moveUp');
-  bottomBar.classList.replace('toDefaultPosition', 'moveDown');
-  dynamicField.classList.replace('appear', 'disappear');
+  topBar.classList.toggle('moveUp');
+  bottomBar.classList.toggle('moveDown');
   //
 };

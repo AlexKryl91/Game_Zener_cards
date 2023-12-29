@@ -7,10 +7,9 @@
 
 @mixin bar-bg($url, $bg-position) {
   background: $url;
-  background-size: auto 95%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: $bg-position;
-  z-index: 0;
 }
 
 @mixin card-bg($url, $bg-size) {
