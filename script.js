@@ -1,4 +1,4 @@
-// ===> CONSTANTS ==================================================================
+// ===> CONSTANTS ===>
 const topBar = document.querySelector('.top-bar');
 const bottomBar = document.querySelector('.bottom-bar');
 const gameField = document.querySelector('.game-field');
@@ -6,7 +6,7 @@ const dynamicField = document.querySelector('.dynamic-field');
 const mainHeader = document.querySelector('.header_main');
 const subHeader = document.querySelector('.header_sub');
 const restartBtn = document.querySelector('.restart-btn');
-// Creating playing cards
+//
 const cards = [];
 for (let i = 0; i < 20; i++) {
   let div = document.createElement('div');
@@ -16,7 +16,7 @@ for (let i = 0; i < 20; i++) {
   cards.push(div);
 }
 
-// ===> FUNCTIONS ==================================================================
+// ===> FUNCTIONS ===>
 function scoreEstimation(score) {
   if (score == 10) {
     return "Wow! You're a psychic!?";
@@ -59,20 +59,29 @@ function randomCardShuffle(cardNodes) {
   // return arrayOfTags;
 }
 
-// ===> MAIN ==================================================================
+function dynamicClassesToggle(msDelay) {
+  restartBtn.classList.toggle('hidden');
+  setTimeout(() => {
+    gameField.classList.toggle('on-top');
+    dynamicField.classList.toggle('disappear');
+    topBar.classList.toggle('moveUp');
+    bottomBar.classList.toggle('moveDown');
+  }, msDelay);
+}
+
+function headerDynamicText(mainText, subText) {
+  mainHeader.textContent = mainText;
+  subHeader.textContent = subText;
+}
+
+// ===> MAIN ===>
 randomCardShuffle(cards);
+dynamicClassesToggle(1500); // Intro animation pause - 1.5s
+
 let moveCounter = 0;
 let activeCounter = cards.length;
 let previuos; // to memorize the first card in pair
 let isAnimationEnded = true; // to account for animation delay when selecting a new card
-//
-setTimeout(() => {
-  topBar.classList.add('moveUp');
-  bottomBar.classList.add('moveDown');
-  dynamicField.classList.add('disappear');
-  gameField.classList.add('on-top');
-}, 1400);
-//
 
 gameField.addEventListener('click', (event) => {
   let node = event.target.closest('.active');
@@ -107,43 +116,20 @@ gameField.addEventListener('click', (event) => {
     }
 
     if (activeCounter === 0) {
-      //
-      //
-      mainHeader.textContent = 'WELL DONE';
-      subHeader.textContent = `You did it in ${moveCounter} moves. ${scoreEstimation(
-        moveCounter
-      )}`;
-      //
-      restartBtn.classList.toggle('hidden');
-      gameField.classList.toggle('on-top');
-      dynamicField.classList.toggle('disappear');
-      //
-      topBar.classList.toggle('moveUp');
-      bottomBar.classList.toggle('moveDown');
-      //
+      headerDynamicText(
+        'WELL DONE',
+        `You did it in ${moveCounter} moves. ${scoreEstimation(moveCounter)}`
+      );
+      dynamicClassesToggle(0);
     }
   }
 });
 
-// <=== MAIN ==================================================================
-
 restartBtn.onclick = () => {
-  // Reinitialize procedure
   moveCounter = 0;
   activeCounter = cards.length;
   cardBehavior(...cards);
   randomCardShuffle(cards);
-  //
-  mainHeader.textContent = 'GOOD LUCK';
-  subHeader.textContent = 'Trust your senses!';
-  //
-  restartBtn.classList.toggle('hidden');
-  setTimeout(() => {
-    gameField.classList.toggle('on-top');
-    dynamicField.classList.toggle('disappear');
-  }, 800);
-  //
-  topBar.classList.toggle('moveUp');
-  bottomBar.classList.toggle('moveDown');
-  //
+  headerDynamicText('GOOD LUCK', 'Trust your senses!');
+  dynamicClassesToggle(500);
 };
