@@ -109,9 +109,8 @@ img {
 
 .container .bottom-bar, .container .top-bar {
   position: absolute;
-  width: 100%;
-  max-width: 800px;
-  height: 30.8%;
+  width: 100vw;
+  height: 30.3783783784vw;
   transition: transform 1.5s ease;
 }
 
@@ -139,11 +138,11 @@ img {
 }
 
 .moveUp {
-  transform: translateY(-30%) rotateX(-180deg);
+  transform: translateY(-9.6vw) rotateX(-180deg);
 }
 
 .moveDown {
-  transform: translateY(30%) rotateX(-180deg);
+  transform: translateY(9.6vw) rotateX(-180deg);
 }
 
 @keyframes intro {
@@ -188,13 +187,13 @@ body {
   animation: intro 1s ease;
 }
 .container .game-field {
-  --dynamic-height: 89vh;
-  --dynamic-gap: 10px;
-  width: calc(0.78125 * var(--dynamic-height) + 6 * var(--dynamic-gap));
-  height: calc(var(--dynamic-height) + 5 * var(--dynamic-gap));
+  --proportion-key: 184vw;
+  --dynamic-gap: 1.2vw;
+  width: calc(0.5 * var(--proportion-key) + 5 * var(--dynamic-gap));
+  height: calc(var(--proportion-key) + 6 * var(--dynamic-gap));
   padding: var(--dynamic-gap);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--dynamic-gap);
 }
 .container .game-field .card {
@@ -219,16 +218,18 @@ body {
 .container .top-bar {
   top: 0;
   background: url(./../img/Top_bar.svg);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+  background-color: rgba(102, 51, 153, 0.5);
 }
 .container .bottom-bar {
   bottom: 0;
   background: url(./../img/Bottom_bar.svg);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  background-color: rgba(102, 51, 153, 0.5);
 }
 .container .dynamic-field {
   background: linear-gradient(90deg, var(--color-black-burgundy), var(--color-dark-burgundy) 20%, var(--color-dark-burgundy) 80%, var(--color-black-burgundy));
@@ -244,6 +245,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .container .dynamic-field .header_sub {
+  margin: 0 20px;
   font-family: "Greta Deco line", var(--fonts-default-stack);
   font-size: 48px;
   text-align: center;
@@ -266,6 +268,46 @@ body {
 .container .dynamic-field .restart-btn:hover {
   box-shadow: 0 0 10px 3px #ece2da;
   transition: 0.3s ease;
+}
+
+@media (min-width: 576px) {
+  .container .game-field {
+    --proportion-key: 54vh;
+    width: calc(3.125 * var(--proportion-key) + 11 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 3 * var(--dynamic-gap));
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .container .game-field {
+    --proportion-key: 88vh;
+    width: calc(0.5 * var(--proportion-key) + 5 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 6 * var(--dynamic-gap));
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .container .game-field {
+    --proportion-key: 89vh;
+    --dynamic-gap: 1.2vh;
+    width: calc(0.78125 * var(--proportion-key) + 6 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 5 * var(--dynamic-gap));
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (min-width: 1900px) {
+  /*
+
+   --proportion-key: 54vh;
+      --dynamic-gap: 10px;
+      width: calc(3.125 * var(--proportion-key) + 11 * var(--dynamic-gap));
+      height: calc(var(--proportion-key) + 3 * var(--dynamic-gap));
+      padding: var(--dynamic-gap);
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: var(--dynamic-gap);
+
+  */
 }
 
 /*# sourceMappingURL=styles.css.map */

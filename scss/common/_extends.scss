@@ -7,9 +7,16 @@
 
 %bar-shared {
   position: absolute;
-  width: 100%;
-  max-width: 800px;
-  height: 30.8%;
+  // for portrait orientation ===>
+  $var-width: 100vw;
+  width: $var-width;
+  height: calc($var-width * 281 / 925);
+
+  // for landscape orentation ===>
+  // $var-test: 96vh;
+  // width: $var-test;
+  // height: calc($var-test * 281 / 925);
+
   transition: transform 1.5s ease;
 }
 

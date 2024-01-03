@@ -12,9 +12,17 @@
 }
 
 .moveUp {
-  transform: translateY(-30%) rotateX(-180deg);
+  // for portrait orientation ===>
+  transform: translateY(-9.6vw) rotateX(-180deg);
+
+  // for landscape orentation ===>
+  // transform: translateY(-9.2vh) rotateX(-180deg);
 }
 
 .moveDown {
-  transform: translateY(30%) rotateX(-180deg);
+  // for portrait orientation ===>
+  transform: translateY(9.6vw) rotateX(-180deg);
+
+  // for landscape orentation ===>
+  // transform: translateY(9.2vh) rotateX(-180deg);
 }

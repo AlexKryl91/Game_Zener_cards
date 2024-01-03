@@ -4,7 +4,7 @@
 @import './common/mixins';
 @import './common/dynamic_styles';
 @import './common/animations';
-@import './common/media_queries';
+// @import './common/media_queries';
 
 // MAIN
 :root {
@@ -34,23 +34,16 @@ body {
   animation: intro 1s ease;
 
   .game-field {
-    --dynamic-height: 89vh;
-    --dynamic-gap: 10px;
-    width: calc(0.78125 * var(--dynamic-height) + 6 * var(--dynamic-gap));
-    height: calc(var(--dynamic-height) + 5 * var(--dynamic-gap));
+    --proportion-key: 184vw;
+    --dynamic-gap: 1.2vw;
+    width: calc(0.5 * var(--proportion-key) + 5 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 6 * var(--dynamic-gap));
     padding: var(--dynamic-gap);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--dynamic-gap);
-    // --dynamic-height: 54vh;
-    // --dynamic-gap: 10px;
-    // width: calc(3.125 * var(--dynamic-height) + 11 * var(--dynamic-gap));
-    // height: calc(var(--dynamic-height) + 3 * var(--dynamic-gap));
-    // padding: var(--dynamic-gap);
-    // display: grid;
-    // grid-template-columns: repeat(10, 1fr);
-    // gap: var(--dynamic-gap);
     //
+    // border: 2px dashed rgb(148, 35, 91);
 
     .card {
       position: relative;
@@ -78,7 +71,7 @@ body {
     top: 0;
     @include bar-bg(url(./../img/Top_bar.svg), bottom);
     //
-    // background-color: rgba(102, 51, 153, 0.5);
+    background-color: rgba(102, 51, 153, 0.5);
   }
 
   .bottom-bar {
@@ -86,7 +79,7 @@ body {
     bottom: 0;
     @include bar-bg(url(./../img/Bottom_bar.svg), top);
     //
-    // background-color: rgba(102, 51, 153, 0.5);
+    background-color: rgba(102, 51, 153, 0.5);
   }
 
   .dynamic-field {
@@ -106,6 +99,7 @@ body {
     }
 
     .header_sub {
+      margin: 0 20px;
       @include header-text-style(
         'Greta Deco line',
         48px,
@@ -124,11 +118,70 @@ body {
       font-family: 'RitzyRemixNF', var(--fonts-default-stack);
       text-align: center;
       letter-spacing: 3px;
-    }
 
-    .restart-btn:hover {
-      box-shadow: 0 0 10px 3px #ece2da;
-      transition: 0.3s ease;
+      &:hover {
+        box-shadow: 0 0 10px 3px #ece2da;
+        transition: 0.3s ease;
+      }
     }
   }
+}
+
+// TEST FOR MEDIA-QUERIES
+// MOBILE-FIRST METHOD
+
+// Устройства Small (телефоны с горизонтальной ориентацией, 576 пикселей и выше)
+@media (min-width: 576px) {
+  .container .game-field {
+    --proportion-key: 54vh;
+    // --dynamic-gap: 10px;
+    width: calc(3.125 * var(--proportion-key) + 11 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 3 * var(--dynamic-gap));
+    // padding: var(--dynamic-gap);
+    grid-template-columns: repeat(10, 1fr);
+    // gap: var(--dynamic-gap);
+  }
+}
+
+// Устройства Medium (планшеты, 768 пикселей и выше)
+@media (min-width: 768px) {
+  .container .game-field {
+    --proportion-key: 88vh;
+    width: calc(0.5 * var(--proportion-key) + 5 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 6 * var(--dynamic-gap));
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Устройства Large (настольные компьютеры, 992 пикселей и выше)
+@media (min-width: 992px) {
+  .container .game-field {
+    --proportion-key: 89vh;
+    --dynamic-gap: 1.2vh;
+    width: calc(0.78125 * var(--proportion-key) + 6 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 5 * var(--dynamic-gap));
+    // padding: var(--dynamic-gap);
+    grid-template-columns: repeat(5, 1fr);
+    // gap: var(--dynamic-gap);
+  }
+}
+
+// Устройства X-Large (большие настольные компьютеры, 1200 пикселей и выше)
+@media (min-width: 1200px) {
+}
+
+// Устройства XX-Large (большие настольные компьютеры, 1400 пикселей и выше)
+@media (min-width: 1900px) {
+  /*
+
+ --proportion-key: 54vh;
+    --dynamic-gap: 10px;
+    width: calc(3.125 * var(--proportion-key) + 11 * var(--dynamic-gap));
+    height: calc(var(--proportion-key) + 3 * var(--dynamic-gap));
+    padding: var(--dynamic-gap);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: var(--dynamic-gap);
+
+*/
 }
