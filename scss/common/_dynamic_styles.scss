@@ -11,18 +11,10 @@
   opacity: 0;
 }
 
-.moveUp {
-  // for portrait orientation ===>
+.move-up {
   transform: translateY(-9.6vw) rotateX(-180deg);
-
-  // for landscape orentation ===>
-  // transform: translateY(-9.2vh) rotateX(-180deg);
 }
 
-.moveDown {
-  // for portrait orientation ===>
+.move-down {
   transform: translateY(9.6vw) rotateX(-180deg);
-
-  // for landscape orentation ===>
-  // transform: translateY(9.2vh) rotateX(-180deg);
 }

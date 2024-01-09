@@ -1,25 +1,3 @@
-%card-shared {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-%bar-shared {
-  position: absolute;
-  // for portrait orientation ===>
-  $var-width: 100vw;
-  width: $var-width;
-  height: calc($var-width * 281 / 925);
-
-  // for landscape orentation ===>
-  // $var-test: 96vh;
-  // width: $var-test;
-  // height: calc($var-test * 281 / 925);
-
-  transition: transform 1.5s ease;
-}
-
 %flex-vertical-shared {
   width: 100%;
   height: 100%;
@@ -28,4 +6,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+%card-shared {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+%bar-shared {
+  $var-width: 100vw;
+  width: $var-width;
+  height: calc($var-width * 281 / 925);
+  position: absolute;
+  transition: transform 1.5s ease;
+}
+
+%bar-bg-container-shared {
+  width: 100%;
+  height: 100%;
+  background: url(./../img/bar.svg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }

@@ -5,13 +5,6 @@
   -ms-user-select: $property;
 }
 
-@mixin bar-bg($url, $bg-position) {
-  background: $url;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: $bg-position;
-}
-
 @mixin card-bg($url, $bg-size) {
   background: $url;
   background-size: $bg-size;
@@ -25,4 +18,32 @@
   background: $bg;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@mixin game-field-layout($defining-size, $columns-number) {
+  grid-template-columns: repeat($columns-number, 1fr);
+
+  @if $columns-number == 4 {
+    $dynamic-gap: (0.0065 * $defining-size);
+    gap: $dynamic-gap;
+    padding: $dynamic-gap;
+    width: (0.5 * $defining-size + 5 * $dynamic-gap);
+    height: ($defining-size + 6 * $dynamic-gap);
+  }
+
+  @if $columns-number == 5 {
+    $dynamic-gap: (0.0135 * $defining-size);
+    gap: $dynamic-gap;
+    padding: $dynamic-gap;
+    width: (0.78125 * $defining-size + 6 * $dynamic-gap);
+    height: ($defining-size + 5 * $dynamic-gap);
+  }
+
+  @if $columns-number == 10 {
+    $dynamic-gap: (0.0065 * $defining-size);
+    gap: $dynamic-gap;
+    padding: $dynamic-gap;
+    width: ($defining-size + 11 * $dynamic-gap);
+    height: (0.32 * $defining-size + 3 * $dynamic-gap);
+  }
 }

@@ -1,56 +1,104 @@
-// TESTS
+@media screen and (max-width: 575.8px) and (orientation: portrait) {
+  .game-field {
+    @include game-field-layout(174vw, 4);
+  }
+}
 
-// @media (orientation: portrait) {
-//   body {
+// Small devices (smartphones landscape-oriented, 576 px and more)
+@media screen and (min-width: 576px) and (orientation: landscape) {
+  .game-field {
+    @include game-field-layout(86vw, 10);
+  }
+
+  .dynamic-field {
+    font-size: 16px;
+
+    .header_sub {
+      margin: 0 40px;
+    }
+  }
+
+  .top-bar {
+    transform: translateY(-9.6vw) rotateX(-180deg);
+  }
+  .bottom-bar {
+    transform: translateY(9.6vw) rotateX(-180deg);
+  }
+
+  .move-up {
+    transform: translateY(-9.6vw) rotateX(-180deg) scale(1.2);
+  }
+  .move-down {
+    transform: translateY(9.6vw) rotateX(-180deg) scale(1.2);
+  }
+}
+@media screen and (min-width: 576px) and (orientation: portrait) {
+  .game-field {
+    @include game-field-layout(88vh, 4);
+  }
+}
+
+// Medium devices (tablets, 768 px and more)
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .game-field {
+    @include game-field-layout(88vh, 4);
+  }
+}
+
+// Large devices (desktops, 992 px and more)
+@media screen and (min-width: 992px) and (orientation: landscape) {
+  .game-field {
+    @include game-field-layout(89vh, 5);
+  }
+
+  .dynamic-field {
+    font-size: 20px;
+
+    .header_sub {
+      margin: 0 20px;
+    }
+  }
+
+  .top-bar {
+    transform: translateY(-13vw) rotateX(0deg);
+  }
+  .move-up {
+    transform: translateY(-11vw) rotateX(-180deg);
+  }
+
+  .bottom-bar {
+    transform: translateY(13vw) rotateX(0deg);
+  }
+  .move-down {
+    transform: translateY(11vw) rotateX(-180deg);
+  }
+}
+
+// X-Large devices (large desktops, 1200 px and more)
+@media (min-width: 1200px) and (orientation: landscape) {
+  .top-bar {
+    max-width: 1000px;
+    transform: translateY(-30vh) rotateX(0deg);
+  }
+  .move-up {
+    transform: translateY(-12vh) rotateX(-180deg);
+  }
+
+  .bottom-bar {
+    max-width: 1000px;
+    transform: translateY(30vh) rotateX(0deg);
+  }
+  .move-down {
+    transform: translateY(12vh) rotateX(-180deg);
+  }
+}
+
+// XX-Large devices (ultra-large desktops, 1400 px and more)
+// @media (min-width: 1900px) and (orientation: landscape) {
+//   .game-field {
+//     --defining-size: 54vh;
+//     width: calc(3.125 * var(--defining-size) + 11 * var(--dynamic-gap));
+//     height: calc(var(--defining-size) + 3 * var(--dynamic-gap));
+//     grid-template-columns: repeat(10, 1fr);
 //   }
 // }
-
-// @media (orientation: landscape) {
-//   body {
-//   }
-// }
-
-// @media (orientation: landscape) and (max-width: 800px) {
-//   .container .game-field {
-//     --dynamic-height: 88vh;
-//     width: calc(0.5 * var(--dynamic-height) + 5 * var(--dynamic-gap));
-//     height: calc(var(--dynamic-height) + 6 * var(--dynamic-gap));
-//     grid-template-columns: repeat(4, 1fr);
-//   }
-//   .top-bar {
-//     height: 31.5vw;
-//   }
-//   .bottom-bar {
-//     height: 31.5vw;
-//   }
-// }
-
-//   @media only screen and (max-width: 520px) {
-//     .gameField {
-//       --dynamic-width: 69vw;
-//       width: calc(var(--dynamic-width) + 5 * var(--dynamic-gap));
-//       height: calc(2 * var(--dynamic-width) + 6 * var(--dynamic-gap));
-//       grid-template-columns: repeat(4, 1fr);
-//     }
-//     .topBar {
-//       height: 31.5vw;
-//     }
-//     .bottomBar {
-//       height: 31.5vw;
-//     }
-//   }
-
-//   @media only screen and (max-width: 400px) {
-//     .gameField {
-//       --dynamic-width: 87vw;
-//       width: calc(var(--dynamic-width) + 5 * var(--dynamic-gap));
-//       height: calc(2 * var(--dynamic-width) + 6 * var(--dynamic-gap));
-//       grid-template-columns: repeat(4, 1fr);
-//     }
-//     .topBar {
-//       height: 31.5vw;
-//     }
-//     .bottomBar {
-//       height: 31.5vw;
-//     }
-//   }

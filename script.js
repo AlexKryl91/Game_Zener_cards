@@ -11,7 +11,7 @@ const cards = [];
 for (let i = 0; i < 20; i++) {
   let div = document.createElement('div');
   div.className = 'card active';
-  div.innerHTML = '<div class="back"></div><div class="face"></div>';
+  div.innerHTML = '<div class="card_back"></div><div class="card_face"></div>';
   gameField.append(div);
   cards.push(div);
 }
@@ -64,8 +64,8 @@ function dynamicClassesToggle(msDelay) {
   setTimeout(() => {
     gameField.classList.toggle('on-top');
     dynamicField.classList.toggle('disappear');
-    topBar.classList.toggle('moveUp');
-    bottomBar.classList.toggle('moveDown');
+    topBar.classList.toggle('move-up');
+    bottomBar.classList.toggle('move-down');
   }, msDelay);
 }
 
