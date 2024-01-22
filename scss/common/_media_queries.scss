@@ -94,11 +94,24 @@
 }
 
 // XX-Large devices (ultra-large desktops)
-// @media (min-width: 1900px) and (orientation: landscape) {
-//   .game-field {
-//     --defining-size: 54vh;
-//     width: calc(3.125 * var(--defining-size) + 11 * var(--dynamic-gap));
-//     height: calc(var(--defining-size) + 3 * var(--dynamic-gap));
-//     grid-template-columns: repeat(10, 1fr);
-//   }
-// }
+@media (min-width: 1900px) and (orientation: landscape) {
+  .game-field {
+    @include game-field-layout(86vw, 10);
+  }
+  .dynamic-field {
+    font-size: 30px;
+  }
+  .top-bar {
+    transform: translateY(-18vw) rotateX(0deg) scale(1.2);
+  }
+  .bottom-bar {
+    transform: translateY(18vw) rotateX(0deg) scale(1.2);
+  }
+
+  .move-up {
+    transform: translateY(38vh) rotateX(-180deg) scale(3);
+  }
+  .move-down {
+    transform: translateY(-38vh) rotateX(-180deg) scale(3);
+  }
+}

@@ -1,16 +1,14 @@
 @font-face {
-  font-family: 'Schaeffer';
-  src: local('Schaeffer'), url('../fonts/Schaeffer.ttf') format('truetype');
+  font-family: "Schaeffer";
+  src: local("Schaeffer"), url("../fonts/Schaeffer.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'RitzyRemixNF';
-  src: local('RitzyRemixNF'),
-    url('../fonts/RitzyRemixNF.ttf') format('truetype');
+  font-family: "RitzyRemixNF";
+  src: local("RitzyRemixNF"), url("../fonts/RitzyRemixNF.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Greta Deco line';
-  src: local('Greta Deco line'),
-    url('../fonts/Greta_Deco_line.ttf') format('truetype');
+  font-family: "Greta Deco line";
+  src: local("Greta Deco line"), url("../fonts/Greta_Deco_line.ttf") format("truetype");
 }
 /* Styles reset */
 * {
@@ -102,8 +100,7 @@ img {
   vertical-align: top;
 }
 
-.dynamic-field,
-.container {
+.dynamic-field, .container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -113,24 +110,21 @@ img {
   justify-content: center;
 }
 
-.game-field .card_face,
-.game-field .card_back {
+.game-field .card_face, .game-field .card_back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
-.bottom-bar,
-.top-bar {
+.bottom-bar, .top-bar {
   width: 100vw;
   height: 30.3783783784vw;
   position: absolute;
   transition: transform 1.5s ease;
 }
 
-.bottom-bar_bg-container,
-.top-bar_bg-container {
+.bottom-bar_bg-container, .top-bar_bg-container {
   width: 100%;
   height: 100%;
   background: url(./../img/bar.svg);
@@ -197,19 +191,13 @@ body {
 }
 
 .dynamic-field {
-  background: linear-gradient(
-    90deg,
-    var(--color-black-burgundy),
-    var(--color-dark-burgundy) 20%,
-    var(--color-dark-burgundy) 80%,
-    var(--color-black-burgundy)
-  );
+  background: linear-gradient(90deg, var(--color-black-burgundy), var(--color-dark-burgundy) 20%, var(--color-dark-burgundy) 80%, var(--color-black-burgundy));
   transition: opacity 1.3s ease;
   font-size: 20px;
 }
 .dynamic-field .header_main {
   margin-bottom: 30px;
-  font-family: 'Schaeffer', var(--fonts-default-stack);
+  font-family: "Schaeffer", var(--fonts-default-stack);
   font-size: 4.1em;
   text-align: center;
   background: var(--gradient-full-gold);
@@ -218,7 +206,7 @@ body {
 }
 .dynamic-field .header_sub {
   margin: 0 20px;
-  font-family: 'Greta Deco line', var(--fonts-default-stack);
+  font-family: "Greta Deco line", var(--fonts-default-stack);
   font-size: 2.4em;
   text-align: center;
   background: var(--gradient-mid-gold);
@@ -233,7 +221,7 @@ body {
   background: var(--gradient-mid-gold);
   color: var(--color-dark-burgundy);
   font-size: 1.3em;
-  font-family: 'RitzyRemixNF', var(--fonts-default-stack);
+  font-family: "RitzyRemixNF", var(--fonts-default-stack);
   text-align: center;
   letter-spacing: 3px;
   z-index: 5;
@@ -382,6 +370,30 @@ body {
   }
   .move-down {
     transform: translateY(12vh) rotateX(-180deg);
+  }
+}
+@media (min-width: 1900px) and (orientation: landscape) {
+  .game-field {
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0.559vw;
+    padding: 0.559vw;
+    width: 92.149vw;
+    height: 29.197vw;
+  }
+  .dynamic-field {
+    font-size: 30px;
+  }
+  .top-bar {
+    transform: translateY(-18vw) rotateX(0deg) scale(1.2);
+  }
+  .bottom-bar {
+    transform: translateY(18vw) rotateX(0deg) scale(1.2);
+  }
+  .move-up {
+    transform: translateY(38vh) rotateX(-180deg) scale(3);
+  }
+  .move-down {
+    transform: translateY(-38vh) rotateX(-180deg) scale(3);
   }
 }
 
