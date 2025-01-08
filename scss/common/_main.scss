@@ -14,7 +14,11 @@
 
 body {
   overflow: hidden;
-  background: url(./../img/background.svg);
+  background: image-set(
+    url('/img/background.avif') type('image/avif'),
+    url('/img/background.jpg') type('image/jpeg')
+  );
+  background-repeat: no-repeat;
   background-size: cover;
   font-family: var(--fonts-default-stack);
   @include user-select(none);
@@ -38,13 +42,13 @@ body {
 
     &_back {
       @extend %card-shared;
-      @include card-bg(url(./../img/back_sm.svg), 100%);
+      @include card-bg(url('/img/back_sm.svg'), 100%);
       background-position: center;
     }
 
     &_face {
       @extend %card-shared;
-      @include card-bg(url(./../img/face_sprite.svg), 500% 100%);
+      @include card-bg(url('/img/face_sprite.svg'), 500% 100%);
       transform: rotateY(180deg);
     }
   }

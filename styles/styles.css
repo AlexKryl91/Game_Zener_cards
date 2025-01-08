@@ -1,14 +1,23 @@
 @font-face {
-  font-family: "Schaeffer";
-  src: local("Schaeffer"), url("../fonts/Schaeffer.ttf") format("truetype");
+  font-family: "Greta Deco line";
+  src: url("../fonts/GretaDecoline.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "RitzyRemixNF";
-  src: local("RitzyRemixNF"), url("../fonts/RitzyRemixNF.ttf") format("truetype");
+  src: url("../fonts/RitzyRemixNF.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: "Greta Deco line";
-  src: local("Greta Deco line"), url("../fonts/Greta_Deco_line.ttf") format("truetype");
+  font-family: "Schaeffer";
+  src: url("../fonts/Schaeffer.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 /* Styles reset */
 * {
@@ -149,7 +158,8 @@ img {
 
 body {
   overflow: hidden;
-  background: url(./../img/background.svg);
+  background: image-set(url("/img/background.avif") type("image/avif"), url("/img/background.jpg") type("image/jpeg"));
+  background-repeat: no-repeat;
   background-size: cover;
   font-family: var(--fonts-default-stack);
   user-select: none;
@@ -178,13 +188,13 @@ body {
   transition: all 0.5s ease;
 }
 .game-field .card_back {
-  background: url(./../img/back_sm.svg);
+  background: url("/img/back_sm.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
 .game-field .card_face {
-  background: url(./../img/face_sprite.svg);
+  background: url("/img/face_sprite.svg");
   background-size: 500% 100%;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
