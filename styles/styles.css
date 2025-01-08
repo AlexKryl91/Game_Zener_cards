@@ -158,7 +158,7 @@ img {
 
 body {
   overflow: hidden;
-  background: image-set(url("/img/background.avif") type("image/avif"), url("/img/background.jpg") type("image/jpeg"));
+  background: image-set(url(./../img/background.avif) type("image/avif"), url(./../img/background.jpg) type("image/jpeg"));
   background-repeat: no-repeat;
   background-size: cover;
   font-family: var(--fonts-default-stack);
@@ -188,13 +188,13 @@ body {
   transition: all 0.5s ease;
 }
 .game-field .card_back {
-  background: url("/img/back_sm.svg");
+  background: url(./../img/back_sm.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
 .game-field .card_face {
-  background: url("/img/face_sprite.svg");
+  background: url(./../img/face_sprite.svg);
   background-size: 500% 100%;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
